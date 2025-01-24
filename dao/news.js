@@ -22,7 +22,7 @@ const getNewsList=(params)=>{
                 }
             })
         ]
-    ).then(([news,count])=>{a
+    ).then(([news,count])=>{
         resolve({
             count,
             news
