@@ -2,7 +2,7 @@ const express=require('express')
 const router = express.Router()
 const {GetNewsList,GetNewsContent,GetNewsCategories,GetHouseSub }=require('../handler/news')
 
-router.get('/news-categories',(req,res)=>{res.send(GetNewsCategories())})
+router.post'('/news-categories',(req,res)=>{res.send(GetNewsCategories())})
 
 router.post('/news-list',(req,res)=>{ GetNewsList(req.body).then((data)=>{res.send(data)}).catch(e=>{console.error(e)})})
 
