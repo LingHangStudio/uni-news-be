@@ -56,7 +56,8 @@ const GetHouseSub=(params)=>{
     const filePath = path.join(__dirname, '../data/content.json')
     const data=JSON.parse(fs.readFileSync(filePath))
     const result=data.house.map(house=>house.sub).flat().filter(sub=>sub.news.includes(house))
-    return result
+    const obj={result}
+    return obj
 }
 
 module.exports={
