@@ -3,11 +3,15 @@ const app=express()
 const dotenv=require('dotenv')
 const sequelize = require('./config/db')
 const newsRouter=require('./routes/index')
+const morgan=require('morgan')
+const cors=require('cors')
 
 dotenv.config()
 
 const port=process.env.PORT || 3000
 
+app.use(cors())
+app.use(morgan(':method :status'))
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json())
 
