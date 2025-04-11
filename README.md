@@ -38,6 +38,7 @@ DB_USER=<数据库用户名>
 DB_PASSWORD=<数据库密码> 
 DB_HOST=<数据库地址>
 
+```
 数据库表结构
 News 表结构:
 
