@@ -35,7 +35,6 @@ const getNewsList=(params)=>{
 }
 
 
-
 const getNewsContent=(params)=>{
     const {id}=params
     return new Promise ((resolve,reject)=>{News.findOne({

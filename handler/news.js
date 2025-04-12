@@ -32,6 +32,7 @@ const GetNewsContent=(params)=>{
     .then((data)=>{
         const result={
             id,
+            title:data.title,
             href:data.href,
             date:data.time,
             content:data.data,
