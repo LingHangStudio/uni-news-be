@@ -1,7 +1,7 @@
 const {DataTypes}=require('sequelize')
 const sequelize = require('../config/db')
 
-const News=sequelize.define('News',{
+const News=sequelize.define('news',{
     sub: DataTypes.STRING,
     title: DataTypes.STRING,
     time: DataTypes.JSON,
