@@ -1,6 +1,6 @@
 const express = require('express')
 const app=express()
-const sequelize = require('./config/db')
+const sequelize = require('./db/db')
 const newsRouter=require('./routes/index')
 const morgan=require('morgan')
 const cors=require('cors')

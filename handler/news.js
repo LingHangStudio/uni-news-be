@@ -47,14 +47,14 @@ const GetNewsContent=(params)=>{
 }
 
 const GetNewsCategories=()=>{
-    const filePath = path.join(__dirname, '../config/content.json')
+    const filePath = path.join(__dirname, '../config/content/content.json')
     const data=JSON.parse(fs.readFileSync(filePath))
     return data
 }
 
 const GetHouseSub=(params)=>{
     const {house}=params
-    const filePath = path.join(__dirname, '../config/content.json')
+    const filePath = path.join(__dirname, '../config/content/content.json')
     const data=JSON.parse(fs.readFileSync(filePath))
     const result=data.house.map(house=>house.sub).flat().filter(sub=>sub.news.includes(house))
     const obj={result}
