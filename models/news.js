@@ -2,6 +2,10 @@ const {DataTypes}=require('sequelize')
 const sequelize = require('../db/db')
 
 const News=sequelize.define('news',{
+    id:{
+      type:DataTypes.INTEGER,
+      primaryKey:true
+    },
     sub: DataTypes.STRING,
     title: DataTypes.STRING,
     time: {
@@ -16,6 +20,7 @@ const News=sequelize.define('news',{
     defaultScope: {
       order: [
         ['time', 'DESC'],
+        ['id','DESC']
       ]
       }
 })

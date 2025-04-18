@@ -2,26 +2,32 @@ const fs = require("fs");
 const path = require("path");
 const { getNewsList, getNewsContent } = require("../dao/news");
 
-const addTimeToNews=(newsArr)=>{
-  return newsArr.map(news=>{
-    const time=new Date(Number(news.time)).toISOString()
-    const timeObj=time.match(/^(\d{4})-(\d{2})-(\d{2})/)
-    if(timeObj){
-  
-        const [_, year, month, day] = timeObj;
-        news.time={year,month,day}
-    }
-    console.log(news)
-    return news;
-  })
-}
+const transformTime = (news) => {
+  // console.log(news);
+  const time = new Date(Number(news.time)).toISOString();
+  const timeObj = time.match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if (timeObj) {
+    const [_, year, month, day] = timeObj;
+    news.time = { year, month, day };
+  }
+  return news;
+};
+const addTimeToNews = (news) => {
+  if (Array.isArray(news)) {
+    return news.map((news) => {
+      return transformTime(news);
+    });
+  } else {
+    return transformTime(news);
+  }
+};
 
 const GetNewsList = (params) => {
   const { sub, page, pageSize } = params;
   return new Promise((resolve, reject) => {
     getNewsList(params)
       .then((data) => {
-        const newsWithTime=addTimeToNews(data.news);
+        const newsWithTime = addTimeToNews(data.news);
         const result = {
           newsList: newsWithTime,
           sub,
@@ -44,6 +50,7 @@ const GetNewsContent = (params) => {
   return new Promise((resolve, reject) => {
     getNewsContent(params)
       .then((data) => {
+        data = addTimeToNews(data);
         const result = {
           id,
           title: data.title,
