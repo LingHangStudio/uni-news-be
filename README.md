@@ -30,13 +30,16 @@ git clone <项目地址>
 
 pnpm install
 
-3.配置环境变量 创建 .env 文件,添加以下配置:
+3.配置环境变量 在项目根目录config/database/database.json,修改以下配置:
 
-PORT=3000
-DB_NAME=<数据库名>
-DB_USER=<数据库用户名>
-DB_PASSWORD=<数据库密码> 
-DB_HOST=<数据库地址>
+{
+    "host": 主机地址,
+    "username": 数据库用户名,
+    "password": 数据库密码,
+    "database": 数据库名称,
+    "port": 数据库端口,
+    "dialect": 数据库选型
+  }
 
 ```
 数据库表结构
