@@ -4,7 +4,8 @@ const sequelize = require('../db/db')
 const News=sequelize.define('news',{
     id:{
       type:DataTypes.INTEGER,
-      primaryKey:true
+      primaryKey:true,
+      autoIncrement:true
     },
     sub: DataTypes.STRING,
     title: DataTypes.STRING,
